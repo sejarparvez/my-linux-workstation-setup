@@ -32,7 +32,7 @@ sudo reboot
 
 1.  Download NodeJs binary for linux mint / Ubuntu / Debian
 
-2.  Go to Downloads folder 📂 find the .tar file and extract it.
+2.  Go to Downloads directory 📂 find the .tar file and extract it.
 
 3.  Now Open Terminal in the newly created directory and paste the following Commend in terminal.
 
