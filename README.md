@@ -34,7 +34,7 @@ sudo reboot
 
 2.  Go to Downloads folder 📂 find the .tar file and extract it.
 
-3.  Now Open Terminal in the newly created directory and paste the following Commend in terminal..
+3.  Now Open Terminal in the newly created directory and paste the following Commend in terminal.
 
 ```
 sudo cp -r ./{lib,share,include,bin} /usr
