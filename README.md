@@ -138,7 +138,7 @@ end
 
 Install the letest version of kitty terminal and make it default terminal.
 
-Set jetbarin mono as the terminal font.
+I am using jetbarin mono as the terminal font.
 
 ### kitty config
 
