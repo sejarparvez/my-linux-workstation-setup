@@ -93,7 +93,7 @@ switch to the neovim-setup branch to get the config file.
 
 # VS code setup
 
-Switch to the vs-code-setup branch to see the process..
+Switch to the vs-code-setup branch to see the process.
 
 # Install Fish.
 
