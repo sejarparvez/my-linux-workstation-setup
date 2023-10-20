@@ -5,34 +5,27 @@
 Make sure you hava a internet connection. now paste the following code in terminal.
 
 ```
-
 sudo apt-get install build-essential git dkms linux-headers-$(uname -r)
-
 ```
 
 ```
 git clone https://github.com/McMCCRU/rtl8188gu.git
-
 ```
 
 ```
 cd rtl8188gu
-
 ```
 
 ```
 make
-
 ```
 
 ```
 sudo make install
-
 ```
 
 ```
 sudo reboot
-
 ```
 
 # Install NodeJs
@@ -44,17 +37,13 @@ sudo reboot
 3.  Now Open Terminal in the newly created directory and paste the following Commend in terminal..
 
 ```
-
 sudo cp -r ./{lib,share,include,bin} /usr
-
-
 ```
 
 # Install mongodb Server
 
 ```
 wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | apt-key add -
-
 ```
 
 ```
@@ -113,12 +102,10 @@ omf theme
 
 ```
 omf instal cyan
-
 ```
 
 ```
 omf theme cyan
-
 ```
 
 ### Fish Config
@@ -145,7 +132,6 @@ if status is-interactive
     alias vim nvim
 
 end
-
 ```
 
 # Install Kitty Terminal.
@@ -246,6 +232,4 @@ color14 #94E2D5
 # white
 color7  #BAC2DE
 color15 #A6ADC8
-
-
 ```
