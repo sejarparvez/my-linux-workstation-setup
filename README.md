@@ -1,5 +1,29 @@
-# My Linux Mint 20.3 Setup guide.
+# My Arch Linux Setup Guide.
 
+## Arch Linux Installation Guide
+**Using `archinstall` (Automated Script)**
+
+ 
+> **Target:** UEFI system with internet  
+> **Method:** `archinstall` — official guided installer (fast, safe, customizable)  
+> **Warning:** Back up your data! disks will be erased.
+
+---
+
+## 1. Download & Boot Arch ISO
+
+1. Download latest ISO from [archlinux.org/download](https://archlinux.org/download/)
+2. Verify signature (optional but recommended):
+   ```bash
+   gpg --keyserver-options auto-key-retrieve --verify archlinux-*.iso.sig
+3. Flash to USB:
+ * Linux
+  ```bash 
+  sudo dd if=archlinux-*.iso of=/dev/sdX bs=4M status=progress && sync
+```
+* Windows Rufus (DD mode)  
+
+4. Boot from USB → UEFI mode (disable Secure Boot)
 # Install wifi driver
 
 Make sure you hava a internet connection. now paste the following code in terminal.
