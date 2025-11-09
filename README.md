@@ -81,3 +81,55 @@ SDDM is a modern display manager for X11 and Wayland.
     ```
 
 Now reboot the system to apply all the changes.
+
+## 3. Wallpapers and SDDM Theme
+
+#### 3.1 Wallpapers
+
+1.  **Clone Wallpapers:**
+    ```bash
+    git clone https://github.com/linuxforwork/wallpaper.git ~/Pictures/Wallpapers
+    ```
+    *Note: The repository name was corrected to `mylinuxforwork-wallpapers.git` and the URL to `https://github.com`.*
+
+####  3.2 SDDM Theme (Sugar Candy)
+
+1.  **Install Sugar Candy Theme:**
+    ```bash
+    paru -S sddm-sugar-candy
+    ```
+    *Note: This command requires root privileges.*
+
+2.  **Set SDDM Theme:**
+    Edit the SDDM configuration file to set the `sugar-candy` theme.
+    ```bash
+    sudo nvim /usr/lib/sddm/sddm.conf.d/default.conf
+    ```
+    Add or modify the `[Theme]` section to include:
+    ```
+    [Theme]
+    Current=Sugar-Candy
+    ```
+    Save and exit the editor.
+
+3.  **Apply Changes:**
+    Reboot your system for the changes to take effect.
+    ```bash
+    sudo reboot
+    ```
+
+## 4. Essential Apps
+
+Install essential applications. Some are available in the official Arch repositories via `pacman`, while others require an AUR helper like `paru`.
+
+### 4.1 Install Pacman Packages
+
+```bash
+sudo pacman -S --needed thunar kdeconnect thunderbird ark
+```
+
+### 4.2 Install AUR Packages (using paru)
+
+```bash
+paru -S --needed zen-browser-bin visual-studio-code-bin spotify brave-bin
+```
