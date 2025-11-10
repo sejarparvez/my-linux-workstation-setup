@@ -1,0 +1,68 @@
+{
+	"workbench.editor.showTabs": "multiple",
+	"editor.minimap.enabled": false,
+
+	// Silence the Noise
+	"breadcrumbs.enabled": false,
+
+	// Typography
+	"editor.fontFamily": "Geist Mono, JetBrains Mono, Fira Code",
+	"terminal.integrated.fontSize": 14,
+	"explorer.sortOrder": "type",
+
+	"editor.defaultFormatter": "biomejs.biome",
+
+	"[json]": {
+		"editor.defaultFormatter": "vscode.json-language-features",
+		"editor.formatOnSave": true
+	},
+	"editor.formatOnSave": true,
+
+	"editor.fontSize": 16,
+	"workbench.activityBar.location": "hidden",
+	"workbench.statusBar.visible": false,
+
+	"editor.cursorBlinking": "expand",
+	"editor.stickyScroll.enabled": false,
+	"editor.lineHeight": 32,
+
+	"material-icon-theme.saturation": 0,
+	"vscode_custom_css.imports": [
+		"file:///home/sejar/.custom-vscode.css",
+		"file:///home/sejar/.custom-vscode.js"
+	],
+	"workbench.colorTheme": "Catppuccin Mocha",
+	"workbench.iconTheme": "material-icon-theme",
+	"workbench.sideBar.location": "right",
+	"material-icon-theme.files.color": "#42a5f5",
+	"workbench.tree.enableStickyScroll": false,
+	"workbench.secondarySideBar.defaultVisibility": "hidden",
+	"window.commandCenter": false,
+	"workbench.editor.editorActionsLocation": "hidden",
+	"workbench.layoutControl.enabled": false,
+	"window.menuBarVisibility": "toggle",
+	"chat.commandCenter.enabled": false,
+	"window.titleBarStyle": "native",
+	"window.customTitleBarVisibility": "never",
+	"terminal.integrated.defaultProfile.linux": "fish",
+	"terminal.integrated.stickyScroll.enabled": false,
+	"terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono",
+	"explorer.compactFolders": false,
+	"files.exclude": {
+		"**/.next": false,
+		"**/node_modules": false,
+		"**/public": false,
+		"**/.gitignore": false,
+		"**/biome.json": false,
+		"**/LICENSE": false,
+		"**/components.json": false,
+		"**/package.json": false,
+		"**/tsconfig.json": false,
+		"**/README.md": false,
+		"**/next.config.mjs": false,
+		"**/postcss.config.mjs": false,
+		"**/next-env.d.ts": false,
+		"**/pnpm-lock.yaml": false
+	},
+	"workbench.startupEditor": "none"
+}

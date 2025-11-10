@@ -131,5 +131,47 @@ sudo pacman -S --needed thunar kdeconnect thunderbird ark
 ### 4.2 Install AUR Packages (using paru)
 
 ```bash
-paru -S --needed zen-browser-bin visual-studio-code-bin spotify brave-bin
+paru -S --needed zen-browser-bin visual-studio-code-bin spotify brave-bin mongodb-compass-bin
 ```
+
+## 5. VS Code Customizations
+
+This section guides you through setting up custom CSS and JavaScript for VS Code.
+
+1.  **Place Custom Files:**
+    Store your custom CSS (`vscode-custom-css.css`) and JavaScript (`vscode-custom-js.js`) files in the `vscode-customizations` directory within this repository.
+
+2.  **Install "Custom CSS and JS Loader" Extension:**
+    Install the "Custom CSS and JS Loader" extension by `be5invis` from the VS Code Marketplace.
+
+3.  **Configure VS Code Settings:**
+    Add the following to your VS Code `settings.json` to link your custom files:
+
+    ```json
+    "vscode_custom_css.imports": [
+		"file:///home/sejar/vscode-customizations/vscode-custom-css.css",
+		"file:///home/sejar/vscode-customizations/vscode-custom-css.js"
+	],
+    ```
+    *Note: Adjust file paths if your `vscode-customizations` directory is located elsewhere.*
+
+4.  **Enable Customizations:**
+    Execute the "Enable Custom CSS and JS" command from the VS Code Command Palette (Ctrl+Shift+P). A restart of VS Code may be required.
+
+    *Important: VS Code will display a warning regarding integrity compromise due to custom modifications. This is normal and can be dismissed.*
+
+### 5.1 Essential Extensions
+
+For an enhanced development experience, consider installing the following VS Code extensions from the Marketplace:
+
+*   **Auto Close Tag**
+*   **Auto Rename Tag**
+*   **Biome**
+*   **Catppuccin for VS Code**
+*   **Code Spell Checker**
+*   **Custom CSS and JS Loader** (Required for custom CSS/JS)
+*   **Markdown All in One**
+*   **Material Icon Theme**
+*   **Tailwind CSS IntelliSense**
+*   **Thunder Client**
+*   **Toggle Excluded Files**
