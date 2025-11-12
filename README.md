@@ -175,3 +175,4 @@ For an enhanced development experience, consider installing the following VS Cod
 *   **Tailwind CSS IntelliSense**
 *   **Thunder Client**
 *   **Toggle Excluded Files**
+*   **Windsurf Plugin**
