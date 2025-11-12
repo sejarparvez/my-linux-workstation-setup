@@ -1,3 +1,4 @@
+// biome-ignore lint: ignore by formatter
 document.addEventListener("DOMContentLoaded", function () {
 	const checkElement = setInterval(() => {
 		const commandDialog = document.querySelector(".quick-input-widget");

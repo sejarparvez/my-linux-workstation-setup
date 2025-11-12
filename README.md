@@ -33,8 +33,8 @@ The `archinstall` script is readily available in the live environment.
     *   **Disk Configuration:** Define your storage setup. Options typically include:
         *   Wipe and use default partitioning.
         *   Custom partitioning.
-        *   Selection of filesystem (e.g., Ext4, Btrfs).
-    *   **Bootloader:** Select a bootloader (e.g., `systemd-boot`, GRUB).
+        *   Selection of filesystem (recommendation use, Ext4,).
+    *   **Bootloader:** Select a bootloader (recommendation keep default `systemd-boot`,).
     *   **User Setup:** Create a standard user account with sudo privileges.
     *   **Profile/Desktop Environment:** For a minimal setup, choose the "Minimal" profile.
     *   **Network Configuration:** Configure networking services (e.g., NetworkManager).
