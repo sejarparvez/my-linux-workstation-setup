@@ -85,12 +85,23 @@ Now reboot the system to apply all the changes.
 ## 3. Wallpapers and SDDM Theme
 
 #### 3.1 Wallpapers
+1. **Create Directory**
+   ```bash
+   mkdir Pictures
+   cd Pictures
+   ```
 
-1.  **Clone Wallpapers:**
+2.  **Clone Wallpapers:**
     ```bash
-    git clone https://github.com/linuxforwork/wallpaper.git ~/Pictures/Wallpapers
+    git clone https://github.com/mylinuxforwork/wallpaper.git
     ```
-    *Note: The repository name was corrected to `mylinuxforwork-wallpapers.git` and the URL to `https://github.com`.*
+
+3. **Rename Directory**
+   ```bash
+   mv wallpaper Wallpapers
+   ```
+4. **Set Wallpaper**
+   Open up application launcher using **super** key, enter the commend mode by typing **>** . Then from the dropdown select wallpaper. If you don't find the wallpapers then reboot the system and try again. make sure your wallpapers is it the ~/Pictures/Wallpapers directory.
 
 ####  3.2 SDDM Theme (Sugar Candy)
 
@@ -108,11 +119,26 @@ Now reboot the system to apply all the changes.
     Add or modify the `[Theme]` section to include:
     ```
     [Theme]
-    Current=Sugar-Candy
+    Current=sugar-candy
     ```
     Save and exit the editor.
 
-3.  **Apply Changes:**
+3. **Change the lock screen background**
+
+    Make sure you are in the root directory. We are copying an image named emergence.jpg from Wallpapers directory to the sugar candy themes backgrounds. 
+    ```bash
+    sudo cp ~/Pictures/Wallpapers/emergence.jpg /usr/share/sddm/themes/sugar-candy/Backgrounds/
+    ```
+
+    now lets change the background or the sddm theme.
+
+    ```bash
+    sudo nvim /usr/share/sddm/themes/sugar-candy/theme.conf
+    ```
+    set the background to the new image 
+    Background="Backgrounds/emergence.jpg"
+
+4.  **Apply Changes:**
     Reboot your system for the changes to take effect.
     ```bash
     sudo reboot
