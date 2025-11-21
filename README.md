@@ -1,152 +1,147 @@
-# My Arch Linux Workstation Setup Guide
+# My Arch Linux Workstation Setup
 
-This repository provides a guide and configuration files for setting up an Arch Linux workstation. The primary focus is on automating the initial installation using `archinstall` and then configuring a minimal desktop environment with essential tools.
+This repository contains all the necessary configuration files and a comprehensive guide to setting up a personalized Arch Linux workstation from scratch. The setup is designed to be efficient, starting with an automated installation using `archinstall` and culminating in a sleek, minimal desktop environment.
 
-## 1. Arch Linux Installation using `archinstall`
+## Table of Contents
+- [My Arch Linux Workstation Setup](#my-arch-linux-workstation-setup)
+  - [Table of Contents](#table-of-contents)
+  - [1. Arch Linux Installation with `archinstall`](#1-arch-linux-installation-with-archinstall)
+    - [Prerequisites](#prerequisites)
+    - [Running the Installer](#running-the-installer)
+  - [2. Essential Post-Installation Setup](#2-essential-post-installation-setup)
+    - [2.1 Update System and Install Git](#21-update-system-and-install-git)
+    - [2.2 Install an AUR Helper (Paru)](#22-install-an-aur-helper-paru)
+    - [2.3 Install Caelestia Shell Configuration](#23-install-caelestia-shell-configuration)
+  - [3. Setting Up the Desktop Environment](#3-setting-up-the-desktop-environment)
+    - [3.1 Install and Enable SDDM](#31-install-and-enable-sddm)
+    - [3.2 Download Wallpapers](#32-download-wallpapers)
+    - [3.3 Configure SDDM Theme (Sugar Candy)](#33-configure-sddm-theme-sugar-candy)
+  - [4. Essential Applications](#4-essential-applications)
+    - [4.1 Install Pacman Packages](#41-install-pacman-packages)
+    - [4.2 Install AUR Packages](#42-install-aur-packages)
+  - [5. VS Code Customizations](#5-vs-code-customizations)
+    - [5.1 Applying Customizations](#51-applying-customizations)
+    - [5.2 Essential Extensions](#52-essential-extensions)
+  - [6. More Applications and Tools](#6-more-applications-and-tools)
+    - [6.1 Fonts](#61-fonts)
+    - [6.2 Node.js, npm, pnpm, and Biome](#62-nodejs-npm-pnpm-and-biome)
 
-The `archinstall` script offers a streamlined, interactive, and menu-driven approach to automate the installation of Arch Linux, significantly simplifying the process compared to manual installation.
+## 1. Arch Linux Installation with `archinstall`
+
+The `archinstall` script provides a guided, menu-driven installation of Arch Linux, making the process much simpler than a manual setup.
 
 ### Prerequisites
 
-Before proceeding with the `archinstall` script, ensure you have completed the following steps:
+1.  **Arch Linux ISO:** [Download the latest ISO](https://archlinux.org/download/) and create a bootable USB drive.
+2.  **Boot:** Boot your machine from the USB drive.
+3.  **Network:** Ensure you have a working internet connection. For Wi-Fi, use the `iwctl` utility in the live environment to connect.
 
-1.  **Arch Linux ISO:** Download the latest Arch Linux ISO image and create a bootable USB drive.
-2.  **Boot from USB:** Boot your target machine from the prepared USB drive to enter the Arch Linux live environment.
-3.  **Network Connectivity:** Verify that you have an active internet connection.
-    *   **Wired Connection:** Typically, a wired connection is established automatically.
-    *   **Wireless Connection:** If using Wi-Fi, you may need to connect manually using the `iwctl` utility within the live environment before running `archinstall`.
+### Running the Installer
 
-### Running the `archinstall` Script
-
-The `archinstall` script is readily available in the live environment.
-
-1.  **Start the Script:**
-    Open a terminal in the live environment and execute:
+1.  **Launch the script:**
     ```bash
     archinstall
     ```
-2.  **Follow the Interactive Prompts:**
-    The script will guide you through the installation process with a series of interactive menus and prompts. Key configuration steps include:
+2.  **Follow the prompts:** The script will guide you through the setup. Below are some recommendations for a minimal setup:
+    *   **Disk Configuration:** Use the option to wipe the drive and use a default partition layout with the **Ext4** filesystem.
+    *   **Bootloader:** The default, `systemd-boot`, is a good choice.
+    *   **Profile:** Select the **"Minimal"** profile.
+    *   **User:** Create a user and grant it superuser (sudo) privileges.
+    *   **Network:** Use **NetworkManager**.
 
-    *   **Localization:** Select your preferred language and keyboard layout.
-    *   **Mirror Region:** Choose the geographically closest mirror for optimized download speeds.
-    *   **Disk Configuration:** Define your storage setup. Options typically include:
-        *   Wipe and use default partitioning.
-        *   Custom partitioning.
-        *   Selection of filesystem (recommendation use, Ext4,).
-    *   **Bootloader:** Select a bootloader (recommendation keep default `systemd-boot`,).
-    *   **User Setup:** Create a standard user account with sudo privileges.
-    *   **Profile/Desktop Environment:** For a minimal setup, choose the "Minimal" profile.
-    *   **Network Configuration:** Configure networking services (e.g., NetworkManager).
-    *   **Timezone:** Set your geographic timezone.
-    *   **Initiate Installation:** Once all selections are made, confirm to start the installation process. This will take some time.
+3.  **Reboot:** After the installation is complete, reboot your system.
 
-3.  **Reboot System:**
-    After the installation completes successfully, reboot your system into the newly installed Arch Linux.
+## 2. Essential Post-Installation Setup
 
-## 2. Post-Installation Setup
+### 2.1 Update System and Install Git
 
-After successfully installing Arch Linux, follow these steps to set up your workstation:
-
-### 2.1 Install Essential Packages
-
-First, update your system and install essential development tools and utilities:
+After rebooting into your new system, open a terminal and run the following command to update your package manager and install `git`:
 
 ```bash
-sudo pacman -Syu
-sudo pacman -S fish git wget curl gcc make cmake nano neovim
+sudo pacman -Syu git
 ```
 
-### 2.2 Install Caelestia Shell Configuration
+### 2.2 Install an AUR Helper (Paru)
 
-Clone the Caelestia shell configuration repository and run its installation script:
+The Arch User Repository (AUR) contains a vast collection of community-maintained packages. `paru` is an AUR helper that makes it easy to install and manage these packages.
+
+```bash
+sudo pacman -S --needed base-devel
+git clone https://aur.archlinux.org/paru.git
+cd paru && makepkg -si && cd .. && rm -rf paru
+```
+
+### 2.3 Install Caelestia Shell Configuration
+
+This will set up a beautiful and functional shell environment.
 
 ```bash
 git clone https://github.com/caelestia-dots/caelestia.git ~/.local/share/caelestia
 ~/.local/share/caelestia/install.fish
 ```
+After this, reboot your system to apply the shell changes.
 
-### 2.3 Install and Enable SDDM
+## 3. Setting Up the Desktop Environment
 
-SDDM is a modern display manager for X11 and Wayland.
+### 3.1 Install and Enable SDDM
 
-1.  Install SDDM:
+SDDM is a modern and lightweight display manager.
+
+1.  **Install SDDM:**
     ```bash
     sudo pacman -S sddm
     ```
-2.  Enable and start SDDM:
+2.  **Enable SDDM:** This will make SDDM start automatically on boot.
     ```bash
     sudo systemctl enable sddm
-    sudo systemctl start sddm
     ```
 
-Now reboot the system to apply all the changes.
+### 3.2 Download Wallpapers
 
-## 3. Wallpapers and SDDM Theme
-
-#### 3.1 Wallpapers
-1. **Create Directory**
-   ```bash
-   mkdir Pictures
-   cd Pictures
-   ```
-
-2.  **Clone Wallpapers:**
+1.  **Clone the wallpapers repository:**
     ```bash
-    git clone https://github.com/mylinuxforwork/wallpaper.git
+    git clone https://github.com/mylinuxforwork/wallpaper.git ~/Pictures/Wallpapers
     ```
+2.  **Set a wallpaper (optional):** You can set a desktop wallpaper now or after the final reboot.
+    - Press the **Super** key to open the application launcher.
+    - Type `>` to enter command mode.
+    - Select "Wallpaper" from the dropdown and choose your desired wallpaper.
 
-3. **Rename Directory**
-   ```bash
-   mv wallpaper Wallpapers
-   ```
-4. **Set Wallpaper**
-   Open up application launcher using **super** key, enter the commend mode by typing **>** . Then from the dropdown select wallpaper. If you don't find the wallpapers then reboot the system and try again. make sure your wallpapers is it the ~/Pictures/Wallpapers directory.
+### 3.3 Configure SDDM Theme (Sugar Candy)
 
-####  3.2 SDDM Theme (Sugar Candy)
-
-1.  **Install Sugar Candy Theme:**
+1.  **Install the theme:**
     ```bash
     paru -S sddm-sugar-candy
     ```
-    *Note: This command requires root privileges.*
-
-2.  **Set SDDM Theme:**
-    Edit the SDDM configuration file to set the `sugar-candy` theme.
+2.  **Set the theme:**
+    Create or edit the SDDM configuration file:
     ```bash
     sudo nvim /usr/lib/sddm/sddm.conf.d/default.conf
     ```
-    Add or modify the `[Theme]` section to include:
-    ```
+    Add the following content:
+    ```ini
     [Theme]
     Current=sugar-candy
     ```
-    Save and exit the editor.
-
-3. **Change the lock screen background**
-
-    Make sure you are in the root directory. We are copying an image named emergence.jpg from Wallpapers directory to the sugar candy themes backgrounds. 
+3.  **Set the lock screen background:**
+    Copy a wallpaper to the theme's background directory.
     ```bash
     sudo cp ~/Pictures/Wallpapers/emergence.jpg /usr/share/sddm/themes/sugar-candy/Backgrounds/
     ```
-
-    now lets change the background or the sddm theme.
-
+    Then, update the theme configuration to use the new background:
     ```bash
     sudo nvim /usr/share/sddm/themes/sugar-candy/theme.conf
     ```
-    set the background to the new image 
+    Change the `Background` property to:
+    ```ini
     Background="Backgrounds/emergence.jpg"
-
-4.  **Apply Changes:**
-    Reboot your system for the changes to take effect.
+    ```
+4.  **Reboot** to see all the desktop environment changes.
     ```bash
     sudo reboot
     ```
 
-## 4. Essential Apps
-
-Install essential applications. Some are available in the official Arch repositories via `pacman`, while others require an AUR helper like `paru`.
+## 4. Essential Applications
 
 ### 4.1 Install Pacman Packages
 
@@ -154,7 +149,7 @@ Install essential applications. Some are available in the official Arch reposito
 sudo pacman -S --needed thunar kdeconnect thunderbird ark
 ```
 
-### 4.2 Install AUR Packages (using paru)
+### 4.2 Install AUR Packages
 
 ```bash
 paru -S --needed zen-browser-bin visual-studio-code-bin spotify brave-bin mongodb-compass-bin
@@ -162,43 +157,64 @@ paru -S --needed zen-browser-bin visual-studio-code-bin spotify brave-bin mongod
 
 ## 5. VS Code Customizations
 
-This section guides you through setting up custom CSS and JavaScript for VS Code.
+This setup uses the **Custom CSS and JS Loader** extension to apply custom styles and scripts to VS Code.
 
-1.  **Place Custom Files:**
-    Store your custom CSS (`vscode-custom-css.css`) and JavaScript (`vscode-custom-js.js`) files in the `vscode-customizations` directory within this repository.
+### 5.1 Applying Customizations
 
-2.  **Install "Custom CSS and JS Loader" Extension:**
-    Install the "Custom CSS and JS Loader" extension by `be5invis` from the VS Code Marketplace.
+1.  **Install the Extension:**
+    Install the "[Custom CSS and JS Loader](https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css)" extension by `be5invis` from the VS Code Marketplace.
 
-3.  **Configure VS Code Settings:**
-    Add the following to your VS Code `settings.json` to link your custom files:
+2.  **Configure `settings.json`:**
+    Add the following to your VS Code `settings.json` file. You can open it by pressing `Ctrl+Shift+P` and searching for "Preferences: Open User Settings (JSON)".
 
     ```json
     "vscode_custom_css.imports": [
-		"file:///home/sejar/vscode-customizations/vscode-custom-css.css",
-		"file:///home/sejar/vscode-customizations/vscode-custom-css.js"
-	],
+        "file://${env:HOME}/MyCode/my-linux-workstation-setup/vscode-customizations/vscode-custom-css.css",
+        "file://${env:HOME}/MyCode/my-linux-workstation-setup/vscode-customizations/vscode-custom-js.js"
+    ],
     ```
-    *Note: Adjust file paths if your `vscode-customizations` directory is located elsewhere.*
+    **Note:** The path `MyCode/my-linux-workstation-setup` assumes you've cloned this repository into a `MyCode` directory in your home folder. Please adjust the path if you've placed it elsewhere.
 
-4.  **Enable Customizations:**
-    Execute the "Enable Custom CSS and JS" command from the VS Code Command Palette (Ctrl+Shift+P). A restart of VS Code may be required.
+3.  **Enable Customizations:**
+    From the VS Code Command Palette (`Ctrl+Shift+P`), run the command **"Enable Custom CSS and JS"**. You will need to restart VS Code for the changes to take effect.
 
-    *Important: VS Code will display a warning regarding integrity compromise due to custom modifications. This is normal and can be dismissed.*
+4.  If you encounter a permissions error, run the following command and then try Step 3 again:
+    ```bash
+    sudo chown -R $(whoami) /opt/visual-studio-code
+    ```
+    *A warning about VS Code being "corrupted" is expected. This is normal when applying custom styles and can be dismissed.*
 
-### 5.1 Essential Extensions
+### 5.2 Essential Extensions
 
-For an enhanced development experience, consider installing the following VS Code extensions from the Marketplace:
+-   **Auto Close Tag**
+-   **Auto Rename Tag**
+-   **Biome**
+-   **Catppuccin for VS Code**
+-   **Code Spell Checker**
+-   **Markdown All in One**
+-   **Material Icon Theme**
+-   **Tailwind CSS IntelliSense**
+-   **Thunder Client**
+-   **Toggle Excluded Files**
+-   **Windsurf Plugin**
 
-*   **Auto Close Tag**
-*   **Auto Rename Tag**
-*   **Biome**
-*   **Catppuccin for VS Code**
-*   **Code Spell Checker**
-*   **Custom CSS and JS Loader** (Required for custom CSS/JS)
-*   **Markdown All in One**
-*   **Material Icon Theme**
-*   **Tailwind CSS IntelliSense**
-*   **Thunder Client**
-*   **Toggle Excluded Files**
-*   **Windsurf Plugin**
+## 6. More Applications and Tools
+
+### 6.1 Fonts
+
+Install essential developer fonts:
+
+```bash
+sudo pacman -S ttf-fira-code
+paru -S ttf-jetbrains-mono otf-geist-mono-nerd
+```
+
+### 6.2 Node.js, npm, pnpm, and Biome
+
+Install JavaScript development tools:
+
+```bash
+sudo pacman -S nodejs npm
+sudo pacman -S pnpm
+sudo pacman -S biome
+```
