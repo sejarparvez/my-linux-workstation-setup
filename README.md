@@ -146,7 +146,7 @@ SDDM is a modern and lightweight display manager.
 ### 4.1 Install Pacman Packages
 
 ```bash
-sudo pacman -S --needed thunar kdeconnect thunderbird ark
+sudo pacman -S --needed thunar kdeconnect thunderbird ark gvfs tumbler qimgv
 ```
 
 ### 4.2 Install AUR Packages
