@@ -16,6 +16,7 @@ This repository contains all the necessary configuration files and a comprehensi
     - [3.1 Install and Enable SDDM](#31-install-and-enable-sddm)
     - [3.2 Download Wallpapers](#32-download-wallpapers)
     - [3.3 Configure SDDM Theme (Sugar Candy)](#33-configure-sddm-theme-sugar-candy)
+    - [3.4 Fix Weather and temperature unit.](#34-fix-weather-and-temperature-unit)
   - [4. Essential Applications](#4-essential-applications)
     - [4.1 Install Pacman Packages](#41-install-pacman-packages)
     - [4.2 Install AUR Packages](#42-install-aur-packages)
@@ -140,6 +141,20 @@ SDDM is a modern and lightweight display manager.
     ```bash
     sudo reboot
     ```
+
+### 3.4 Fix Weather and temperature unit.
+
+```bash
+nano ~/.config/caelestia/shell.json
+```
+```bash
+{
+  "services": {
+    "useFahrenheit": false,
+    "weatherLocation": "23.54,89.18"
+  }
+}
+```
 
 ## 4. Essential Applications
 
