@@ -145,15 +145,80 @@ SDDM is a modern and lightweight display manager.
 ### 3.4 Fix Weather and temperature unit.
 
 ```bash
-nano ~/.config/caelestia/shell.json
+nvim ~/.config/caelestia/shell.json
 ```
 ```bash
 {
+  "general": {
+    "idle": {
+      "lockBeforeSleep": true,
+      "inhibitWhenAudio": true,
+      "timeouts": [
+        {
+          "timeout": 600,
+          "idleAction": "lock"
+        },
+        {
+          "timeout": 1800,
+          "idleAction": "dpms off",
+          "returnAction": "dpms on"
+        },
+        {
+          "timeout": 3600,
+          "idleAction": [
+            "systemctl",
+            "suspend-then-hibernate"
+          ]
+        }
+      ]
+    }
+  },
+  "background": {
+    "desktopClock": {
+      "enabled": true
+    },
+    "enabled": true
+  },
+  "bar": {
+    "clock": {
+      "showIcon": false
+    },
+    "persistent": false,
+    "scrollActions": {
+      "brightness": true,
+      "workspaces": true,
+      "volume": true
+    },
+    "showOnHover": true,
+    "status": {
+      "showAudio": true,
+      "showBattery": false,
+      "showBluetooth": false,
+      "showLockStatus": false
+    }
+  },
+  "border": {
+    "rounding": 10,
+    "thickness": 1.5
+  },
+  "dashboard": {
+    "showOnHover": false
+  },
+  "osd": {
+    "enabled": false
+  },
   "services": {
+    "weatherLocation": "23.54,89.18",
     "useFahrenheit": false,
-    "weatherLocation": "23.54,89.18"
+    "useTwelveHourClock": true
+  },
+  "utilities": {
+    "toasts": {
+      "capsLockChanged": false
+    }
   }
 }
+
 ```
 
 ## 4. Essential Applications
