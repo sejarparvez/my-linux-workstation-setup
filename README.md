@@ -226,13 +226,13 @@ nvim ~/.config/caelestia/shell.json
 ### 4.1 Install Pacman Packages
 
 ```bash
-sudo pacman -S --needed thunar kdeconnect thunderbird ark gvfs tumbler qimgv
+sudo pacman -S --needed thunar kdeconnect thunderbird ark gvfs tumbler
 ```
 
 ### 4.2 Install AUR Packages
 
 ```bash
-paru -S --needed zen-browser-bin visual-studio-code-bin spotify brave-bin mongodb-compass-bin
+paru -S --needed zen-browser-bin visual-studio-code-bin spotify brave-bin mongodb-compass-bin qimgv
 ```
 
 ## 5. VS Code Customizations
