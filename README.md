@@ -213,6 +213,7 @@ nvim ~/.config/caelestia/shell.json
     "useTwelveHourClock": true
   },
   "utilities": {
+  "enabled": false,
     "toasts": {
       "capsLockChanged": false
     }
