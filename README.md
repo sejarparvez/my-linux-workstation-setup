@@ -286,7 +286,7 @@ nvim ~/.config/caelestia/shell.json
       "label": "  ",
       "occupiedLabel": "󰮯",
       "activeLabel": "󰮯",
-      "capitalisation": "preserve",
+      "capitalization": "preserve",
       "specialWorkspaceIcons": []
     },
     "tray": {

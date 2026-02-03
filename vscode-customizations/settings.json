@@ -9,13 +9,15 @@
 	"editor.fontFamily": "Geist Mono, JetBrains Mono, Fira Code",
 	"terminal.integrated.fontSize": 14,
 	"explorer.sortOrder": "type",
+	"editor.fontLigatures": true,
 
 	"editor.defaultFormatter": "biomejs.biome",
-
-	"[json]": {
-		"editor.defaultFormatter": "vscode.json-language-features",
-		"editor.formatOnSave": true
+	"editor.codeActionsOnSave": {
+		"source.fixAll.biome": "always",
+		"source.organizeImports": "always",
+		"source.action.useSortedAttributes.biome": "always"
 	},
+
 	"editor.formatOnSave": true,
 
 	"editor.fontSize": 16,
@@ -28,8 +30,8 @@
 
 	"material-icon-theme.saturation": 0,
 	"vscode_custom_css.imports": [
-		"file:///home/sejar/.custom-vscode.css",
-		"file:///home/sejar/.custom-vscode.js"
+		"file:///home/sejar/.vscode-custom-css.css",
+		"file:///home/sejar/.vscode-custom-js.js"
 	],
 	"workbench.colorTheme": "Catppuccin Mocha",
 	"workbench.iconTheme": "material-icon-theme",
@@ -62,7 +64,20 @@
 		"**/next.config.mjs": false,
 		"**/postcss.config.mjs": false,
 		"**/next-env.d.ts": false,
-		"**/pnpm-lock.yaml": false
+		"**/pnpm-lock.yaml": false,
+		"**/next.config.ts": false,
+		"**/.env": false,
+		"**/prisma.config.ts": false,
+		"**/.swc": false,
+		"**/.github": false,
+		"**/bun.lock": false,
+		"**/jest.config.ts": false,
+		"**/jest.setup.ts": false,
+		"**/next-auth.d.ts": false
 	},
-	"workbench.startupEditor": "none"
+	"workbench.startupEditor": "none",
+	"explorer.confirmDelete": false,
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"explorer.confirmDragAndDrop": false
 }
